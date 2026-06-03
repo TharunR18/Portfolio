@@ -5,7 +5,7 @@ export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const portraitRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  
+
   const [hoverProgress, setHoverProgress] = useState(0) // 0 to 1
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const [globalMousePos, setGlobalMousePos] = useState({ x: 0, y: 0 })
@@ -66,18 +66,18 @@ export default function Hero() {
           setAutoReveal({ x: faceX, y: faceY, radius: animObj.radius })
         }
       })
-      .to(animObj, {
-        radius: 0, // Contract back to 0
-        duration: 1.2,
-        ease: 'power2.in',
-        delay: 0.8, // Hold open
-        onUpdate: () => {
-          setAutoReveal({ x: faceX, y: faceY, radius: animObj.radius })
-        },
-        onComplete: () => {
-          autoRevealTlRef.current = null
-        }
-      })
+        .to(animObj, {
+          radius: 0, // Contract back to 0
+          duration: 1.2,
+          ease: 'power2.in',
+          delay: 0.8, // Hold open
+          onUpdate: () => {
+            setAutoReveal({ x: faceX, y: faceY, radius: animObj.radius })
+          },
+          onComplete: () => {
+            autoRevealTlRef.current = null
+          }
+        })
     }
 
     // Trigger initially after 3 seconds on mount
@@ -140,12 +140,12 @@ export default function Hero() {
       for (let i = 0; i < numLines; i++) {
         ctx.beginPath()
         const radius = (canvas.width * 0.08) + i * 110 + Math.sin(offset + i * 0.4) * 15
-        
+
         for (let angle = 0; angle <= Math.PI * 2; angle += 0.04) {
           const noise = Math.sin(angle * 5 + offset + i) * 25 + Math.cos(angle * 2.5 - offset) * 12
           const x = center.x + Math.cos(angle) * (radius + noise)
           const y = center.y + Math.sin(angle) * (radius + noise)
-          
+
           if (angle === 0) {
             ctx.moveTo(x, y)
           } else {
@@ -241,7 +241,7 @@ export default function Hero() {
   const portraitTranslateY = scrollY * 0.12
 
   return (
-    <section 
+    <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -251,8 +251,8 @@ export default function Hero() {
       className="relative w-full h-[100vh] bg-white flex flex-col justify-start items-center overflow-hidden select-none"
     >
       {/* Background Canvas with forced GPU composite layer to prevent subpixel line shearing */}
-      <canvas 
-        ref={canvasRef} 
+      <canvas
+        ref={canvasRef}
         className="absolute inset-0 w-full h-full pointer-events-none z-0 transform-gpu"
         style={{ transform: 'translate3d(0,0,0)' }}
       />
@@ -262,26 +262,26 @@ export default function Hero() {
         - Added transform-gpu and translate3d layer separation to prevent Chromium rendering bugs.
         - Fades smoothly at the bottom boundaries.
       */}
-      <div 
+      <div
         ref={portraitRef}
         className="absolute bottom-0 w-[100vw] sm:w-[92vw] md:w-[80vw] lg:w-[62vw] xl:w-[50vw] h-[85vh] sm:h-[95vh] max-h-[960px] pointer-events-none z-20 transition-transform duration-75 ease-out transform-gpu"
-        style={{ 
+        style={{
           transform: `translateY(${portraitTranslateY}px) translate3d(0,0,0)`,
           maskImage: 'linear-gradient(to bottom, black 70%, transparent 98%)',
           WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 98%)'
         }}
       >
         {/* Human Base Image */}
-        <img 
-          src="/assests/hero_section_img/human.png" 
-          alt="Tharun.R Human Cutout" 
+        <img
+          src="/hero_section_img/human.png"
+          alt="Tharun.R Human Cutout"
           className="absolute inset-0 w-full h-full object-cover object-[center_12%] select-none"
         />
 
         {/* AI Overlay Image with Hover Mask */}
-        <img 
-          src="/assests/hero_section_img/robot.png" 
-          alt="Tharun.R Premium Corporate AI Cutout" 
+        <img
+          src="/hero_section_img/robot.png"
+          alt="Tharun.R Premium Corporate AI Cutout"
           className="absolute inset-0 w-full h-full object-cover object-[center_12%] select-none"
           style={maskStyle}
         />

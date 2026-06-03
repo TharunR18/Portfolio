@@ -3,52 +3,52 @@ import React from 'react'
 export default function Footer() {
   return (
     <footer className="relative w-full h-[100vh] bg-black text-white overflow-hidden select-none">
-      
+
       {/* Background Looping 3D Cartoon video (Full Color) */}
       <div className="absolute inset-0 w-full h-full z-0 opacity-90 pointer-events-none">
-        <video 
-          src="/assests/footer video.mp4" 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
+        <video
+          src="/footer video.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover filter brightness-100 contrast-100"
         />
       </div>
 
       {/* Vertical Social Channels (Left Side) */}
       <div className="absolute left-6 sm:left-12 top-[42%] -translate-y-1/2 z-20 flex flex-col items-center space-y-6">
-        <a 
-          href="https://github.com/TharunR18" 
-          target="_blank" 
+        <a
+          href="https://github.com/TharunR18"
+          target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 transition-transform duration-300 block"
         >
-          <img 
-            src="https://skillicons.dev/icons?i=github" 
-            alt="GitHub" 
+          <img
+            src="https://skillicons.dev/icons?i=github"
+            alt="GitHub"
             className="w-9 h-9 object-contain"
           />
         </a>
-        <a 
+        <a
           href="mailto:its.tharun018@gmail.com"
           className="hover:scale-110 transition-transform duration-300 block"
         >
-          <img 
-            src="https://skillicons.dev/icons?i=gmail" 
-            alt="Gmail" 
+          <img
+            src="https://skillicons.dev/icons?i=gmail"
+            alt="Gmail"
             className="w-9 h-9 object-contain"
           />
         </a>
-        <a 
-          href="https://linkedin.com/in/tharun2007" 
-          target="_blank" 
+        <a
+          href="https://linkedin.com/in/tharun2007"
+          target="_blank"
           rel="noopener noreferrer"
           className="hover:scale-110 transition-transform duration-300 block"
         >
-          <img 
-            src="https://skillicons.dev/icons?i=linkedin" 
-            alt="LinkedIn" 
+          <img
+            src="https://skillicons.dev/icons?i=linkedin"
+            alt="LinkedIn"
             className="w-9 h-9 object-contain"
           />
         </a>
