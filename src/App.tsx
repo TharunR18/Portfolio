@@ -165,15 +165,28 @@ export default function App() {
     }
   }, [loading])
 
-  // Track hover capability
   useEffect(() => {
-    const hoverMediaQuery = window.matchMedia('(hover: hover)')
-    setSupportsHover(hoverMediaQuery.matches)
-    const handleChange = (e: MediaQueryListEvent) => {
-      setSupportsHover(e.matches)
+    const checkHover = () => {
+      // Check for hover capability and screen width (avoid laptop/tablet touchscreens with small width)
+      const hoverMediaQuery = window.matchMedia('(hover: hover)')
+      const isLargeScreen = window.innerWidth >= 1024
+      setSupportsHover(hoverMediaQuery.matches && isLargeScreen)
     }
+
+    checkHover()
+
+    const hoverMediaQuery = window.matchMedia('(hover: hover)')
+    const handleChange = (e: MediaQueryListEvent) => {
+      checkHover()
+    }
+
+    window.addEventListener('resize', checkHover)
     hoverMediaQuery.addEventListener('change', handleChange)
-    return () => hoverMediaQuery.removeEventListener('change', handleChange)
+
+    return () => {
+      window.removeEventListener('resize', checkHover)
+      hoverMediaQuery.removeEventListener('change', handleChange)
+    }
   }, [])
 
   // Track global mouse position and hover states
@@ -217,12 +230,11 @@ export default function App() {
 
       {/* Custom Scroll Progress Bar */}
       {unmountLoader && (
-        <div className={`fixed right-3 sm:right-5 top-[10vh] h-[80vh] w-1 sm:w-1.5 bg-neutral-500/10 backdrop-blur-[2px] rounded-full border border-neutral-500/10 z-50 pointer-events-none transition-all duration-500 ${
-          hideProgressBar ? 'opacity-0 scale-95 translate-x-4' : 'opacity-100 scale-100'
-        }`}>
-          <div 
+        <div className={`fixed right-3 sm:right-5 top-[10vh] h-[80vh] w-1 sm:w-1.5 bg-neutral-500/10 backdrop-blur-[2px] rounded-full border border-neutral-500/10 z-50 pointer-events-none transition-all duration-500 ${hideProgressBar ? 'opacity-0 scale-95 translate-x-4' : 'opacity-100 scale-100'
+          }`}>
+          <div
             className="w-full bg-accent rounded-full shadow-[0_0_12px_rgba(200,165,90,0.8)] transition-all duration-75 ease-out"
-            style={{ 
+            style={{
               height: `${scrollProgress}%`,
               willChange: 'height'
             }}
@@ -257,7 +269,7 @@ export default function App() {
 
       {/* Global custom gold cursor dot (only rendered on hoverable desktop platforms) */}
       {supportsHover && (
-        <div 
+        <div
           className="fixed w-3.5 h-3.5 bg-accent rounded-full pointer-events-none z-[9999] shadow-sm transition-transform duration-100 ease-out"
           style={{
             left: mousePos.x,
@@ -269,11 +281,11 @@ export default function App() {
 
       {/* Loading Screen Overlay - rendered on top, slides up and unmounts */}
       {!unmountLoader && (
-        <LoadingScreen 
+        <LoadingScreen
           onComplete={() => {
             setLoading(false)
             setUnmountLoader(true)
-          }} 
+          }}
         />
       )}
     </div>
