@@ -199,7 +199,7 @@ export default function About() {
 
           {/* Response text */}
           <p className="font-clash text-3xl sm:text-4xl lg:text-[42px] font-medium text-[#F5F5F5] leading-tight">
-            {"I'm a full-stack developer passionate about crafting high-performance web experiences.".split(" ").map((word, i) => (
+            {"I'm a Computer Science student with a strong interest in tech, problem-solving, and building meaningful digital experiences.".split(" ").map((word, i) => (
               <span key={i} className="inline-block opacity-10 mr-3.5 word blur-[8px] transition-all duration-300">
                 {word}
               </span>
@@ -227,7 +227,7 @@ export default function About() {
 
           {/* Response text */}
           <p className="font-clash text-3xl sm:text-4xl lg:text-[42px] font-medium text-[#F5F5F5] leading-tight">
-            {"I'm someone who enjoys learning new things and improving every day.".split(" ").map((word, i) => (
+            {"I'm a person who enjoys learning new things and improving every day.".split(" ").map((word, i) => (
               <span key={i} className="inline-block opacity-10 mr-3.5 word blur-[8px] transition-all duration-300">
                 {word}
               </span>
@@ -255,7 +255,7 @@ export default function About() {
 
           {/* Response text */}
           <p className="font-clash text-3xl sm:text-4xl lg:text-[42px] font-medium text-[#F5F5F5] leading-tight">
-            {"I'm always open to exploring new tools and technologies to contribute better, build better, and continue growing.".split(" ").map((word, i) => (
+            {"I'm always open to exploring new tools and technologies to contribute better and continue growing.".split(" ").map((word, i) => (
               <span key={i} className="inline-block opacity-10 mr-3.5 word blur-[8px] transition-all duration-300">
                 {word}
               </span>
