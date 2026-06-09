@@ -12,6 +12,23 @@ export default function Hero() {
   const [scrollY, setScrollY] = useState(0)
   const [supportsHover, setSupportsHover] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
+  const [showHoverMsg, setShowHoverMsg] = useState(false)
+
+  // Show hover message smoothly on load, then hide after 10 seconds
+  useEffect(() => {
+    const showTimer = setTimeout(() => {
+      setShowHoverMsg(true)
+    }, 800)
+
+    const hideTimer = setTimeout(() => {
+      setShowHoverMsg(false)
+    }, 10800) // 800ms + 10s
+
+    return () => {
+      clearTimeout(showTimer)
+      clearTimeout(hideTimer)
+    }
+  }, [])
 
   // Detect mobile view based on window width
   useEffect(() => {
@@ -286,6 +303,24 @@ export default function Hero() {
           style={maskStyle}
         />
       </div>
+
+      {/* 10s Hover Instruction Message for Desktop */}
+      {!isMobile && supportsHover && (
+        <div
+          className={`absolute bottom-[8%] left-1/2 -translate-x-1/2 z-30 transition-all duration-1000 ease-in-out transform-gpu flex flex-col items-center gap-3 ${
+            showHoverMsg ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6 pointer-events-none'
+          }`}
+        >
+          <div className="flex items-center gap-3 px-5 py-3 rounded-full bg-white/40 backdrop-blur-md border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)]">
+            <div className="relative flex items-center justify-center h-8 w-5 rounded-full border border-gray-400/80">
+              <span className="absolute top-1.5 w-1 h-1.5 bg-amber-500 rounded-full animate-bounce"></span>
+            </div>
+            <p className="text-gray-700 text-[10px] sm:text-xs tracking-[0.15em] uppercase font-light">
+              Hover on image to see the effect
+            </p>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
