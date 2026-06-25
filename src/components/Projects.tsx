@@ -13,15 +13,24 @@ interface Project {
 const PROJECTS_DATA: Project[] = [
   {
     id: "01",
-    title: "Task Tracker",
-    subtitle: "Full-Stack Task Management",
-    description: "Full-stack task management application built with MERN, featuring seamless CRUD operations and real-time data flow across the stack.",
-    videoUrl: "/projects_Section_video/Task-Tracker.mp4",
-    siteUrl: "https://mern-crud-web.vercel.app/",
-    techStack: "React • Node.js • MongoDB • Express"
+    title: "FileMerch",
+    subtitle: "Digital Products Marketplace",
+    description: "A full-stack digital marketplace where users can upload, sell, purchase, and instantly download digital products. Built with secure authentication, seller dashboards, payment integration, and a seamless shopping experience.",
+    videoUrl: "/projects_Section_video/filemerch.mp4",
+    siteUrl: "https://filemerch-r18.vercel.app/",
+    techStack: "React • Node.js • MongoDB • Razorpay"
   },
   {
     id: "02",
+    title: "Auth-R18",
+    subtitle: "Secure Authentication System",
+    description: "Secure MERN authentication system featuring JWT-based auth, email verification, password recovery and protected user sessions.",
+    videoUrl: "/projects_Section_video/AuthR18.mp4",
+    siteUrl: "https://authr18.vercel.app/",
+    techStack: "React • Node.js • JWT • MongoDB"
+  },
+  {
+    id: "03",
     title: "Pomodoro",
     subtitle: "Clean Productivity App",
     description: "Minimal productivity timer built with HTML, CSS and JavaScript, focused on clean design and user experience.",
@@ -30,13 +39,13 @@ const PROJECTS_DATA: Project[] = [
     techStack: "HTML • CSS • JavaScript"
   },
   {
-    id: "03",
-    title: "Auth-R18",
-    subtitle: "Secure Authentication System",
-    description: "Secure MERN authentication system featuring JWT-based auth, email verification, password recovery and protected user sessions.",
-    videoUrl: "/projects_Section_video/AuthR18.mp4",
-    siteUrl: "https://authr18.vercel.app/",
-    techStack: "React • Node.js • JWT • MongoDB"
+    id: "04",
+    title: "Task Tracker",
+    subtitle: "Full-Stack Task Management",
+    description: "Full-stack task management application built with MERN, featuring seamless CRUD operations and real-time data flow across the stack.",
+    videoUrl: "/projects_Section_video/Task-Tracker.mp4",
+    siteUrl: "https://mern-crud-web.vercel.app/",
+    techStack: "React • Node.js • MongoDB • Express"
   }
 ]
 
