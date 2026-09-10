@@ -31,7 +31,7 @@ export default function Footer() {
           />
         </a>
         <a
-          href="mailto:its.tharun018@gmail.com"
+          href="mailto:tharunr.dev@gmail.com"
           className="hover:scale-110 transition-transform duration-300 block"
         >
           <img
