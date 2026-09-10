@@ -17,7 +17,7 @@ const PROJECTS_DATA: Project[] = [
     subtitle: "Digital Products Marketplace",
     description: "A full-stack digital marketplace where users can upload, sell, purchase, and instantly download digital products. Built with secure authentication, seller dashboards, payment integration, and a seamless shopping experience.",
     videoUrl: "/projects_Section_video/filemerch.mp4",
-    siteUrl: "https://filemerch-r18.vercel.app/",
+    siteUrl: "https://filemerch.vercel.app/",
     techStack: "React • Node.js • MongoDB • Razorpay"
   },
   {
